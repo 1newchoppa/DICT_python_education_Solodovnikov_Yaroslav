@@ -1,2 +1,5 @@
 print("Hello! My name is Katafalk_Bot")
 print("I was created in 2022")
+print("Please, remind me your name")
+user_name = input()
+print("What a great name you have,", user_name)
