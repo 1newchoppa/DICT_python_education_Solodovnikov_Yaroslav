@@ -21,3 +21,22 @@ for i in range(1,number+1):
     print(i,"!")
 print("Completed, have a nice day!")
 
+#Little Quiz
+print("Let's test your programming knowledge")
+print("Why do we use methods?")
+print("""
+1. To repeat a statement multiple times.
+2. To decompose a program into several small subroutines.
+3. To determine the execution time of a program.
+4. To interrupt the execution of a program.
+""")
+while True:
+    n = int(input())
+    if n == 2:
+        print("Completed, have a nice day!")
+        break
+    else:
+        print("Please, try again")
+
+#Ending
+print("Congratulations, have a nice day!")
