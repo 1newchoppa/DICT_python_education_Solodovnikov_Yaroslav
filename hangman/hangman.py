@@ -1,12 +1,14 @@
+import random
 #Step 1
-print('HANGMAN')
-print('The game will be available soon.')
 
-#Step 2
-word = ("php")
+print('HANGMAN')
+
+#Step 3
+word_list = ["php" , "python" , "c#" , "c++"]
+word_random = random.choice(word_list)
 user_input = input('Guess the word:')
 while True:
-    if user_input.strip() == word:
+    if user_input.strip() == word_random:
         print('You survived!')
         break
     else:
