@@ -3,10 +3,11 @@ import random
 
 print('HANGMAN')
 
-#Step 3
-word_list = ["php" , "python" , "c#" , "c++"]
+#Step 4
+word_list = ["php" , "python" , "java" , "javascript"]
 word_random = random.choice(word_list)
-user_input = input('Guess the word:')
+tire = (len(word_random)-3) * '-'
+user_input = input('Guess the word: ' + word_random[0:2] + tire + "-\n")
 while True:
     if user_input.strip() == word_random:
         print('You survived!')
