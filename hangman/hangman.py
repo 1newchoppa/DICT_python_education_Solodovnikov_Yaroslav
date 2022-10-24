@@ -4,22 +4,30 @@ import random
 print('HANGMAN')
 
 #Step 5
-lifes = 8
-word_list = ["php" , "python" , "java" , "javascript"]
-word_random = random.choice(word_list)
-used = []
-letters = list(set(word_random))
-word_correct = "".join([i if i in used else "_" for i in word_random])
+word_list = ["kotlin", "java", "php", "python"]
+random_word = random.choice(word_list)
+used_letters = []
+letters = list(set(random_word))
+word_correct = "".join([i if i in used_letters else "_" for i in random_word])
 print(word_correct)
+lifes = 8
 while lifes > 0:
-    input_letter = input("Input a letter")
-    if input_letter in word_random and input_letter not in used:
-        used.append(input_letter)
-        letters.remove(input_letter)
-    else:
+    letter = input("Input a letter:")
+    if letter not in random_word:
         lifes -= 1
-    word_correct = "".join([i if i in used else "_" for i in word_random])
+        print("That letter doesn't appear in the word")
+    if letter in used_letters:
+        lifes -= 1
+        print("No improvements")
+    if letter in random_word and letter not in used_letters:
+        used_letters.append(letter)
+        letters.remove(letter)
+    word_correct = "".join([i if i in used_letters else "_" for i in random_word])
     print(word_correct)
+    if lifes == 0 and len(letters) != 0:
+        print("You lose!")
     if len(letters) == 0:
+        print("You win!")
         break
-print('Thanks for playing!\n We`ll see how well you did the next stage')
+
+print("thanks for playing\nWe'll see how well you did in the next stage")
