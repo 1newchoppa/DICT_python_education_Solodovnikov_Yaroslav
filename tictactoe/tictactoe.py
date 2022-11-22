@@ -33,11 +33,15 @@ def play(cells):
 def game_status(game):
     winner = get_winner(game)
     if winner:
-        return winner + " wins"
+        print("Congartulations " + winner)
+        return True
+
     if "" in game[0] or "" in game[1] or "" in game[2]:
-        return "Game not finished"
+        print("Game not finished")
+        return False
     else:
-        return "Draw"
+        print("Draw")
+        return False
 
 
 def valid_game(game, cells):
@@ -129,3 +133,5 @@ while status not in final_status:
 
     print_board(game)
     status = game_status(game)
+    if status == True:
+        break
