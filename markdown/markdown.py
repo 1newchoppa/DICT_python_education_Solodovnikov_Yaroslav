@@ -5,12 +5,12 @@ user_command = ""
 
 print("*******Markdown editor******* \n   Type <help> for show list of possible commands or <done> for save progress")
 
-command_list = ['help', 'done', 'header', "plain", "link"]
+command_list = ['help', 'done', 'header', "plain", "link", "ordered_list", "unordered_list"]
 
 
 def help():
     print(
-        "Available formatters: plain, bold, italic, header, link, inline-code, ordered-list, unordered-list, new-line" '\n' "Special commands: help , done")
+        "Available formatters: plain, bold, italic, header, link, inline-code, ordered_list, unordered_list, new-line" '\n' "Special commands: help , done")
 
 
 def done():
@@ -45,6 +45,38 @@ def link():
     user_text = input("URL: ")
     edited_text += ("(" + (user_text) + ")" + "\n")
     print(edited_text)
+
+
+def ordered_list():
+    global edited_text
+    global user_text
+    global row_number
+    global number_list
+    row_number = int(input("Number of rows: "))
+    if row_number > 0:
+        for i in range(row_number):
+            print("Row #", i + 1)
+            user_text = input()
+            number_list = i + 1
+            edited_text += (str(number_list) + "." + user_text + '\n')
+        print(edited_text)
+    else:
+        print("The number of rows should be greather than zero")
+
+
+def unordered_list():
+    global edited_text
+    global user_text
+    global row_number
+    row_number = int(input("Number of rows: "))
+    if row_number > 0:
+        for j in range(row_number):
+            print("Row #", j + 1)
+            user_text = input()
+            edited_text += ("*" + user_text + '\n')
+        print(edited_text)
+    else:
+        print("The number of rows should be greather than zero")
 
 
 while user_command != "done":
