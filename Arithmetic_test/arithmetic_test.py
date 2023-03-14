@@ -1,32 +1,39 @@
+counter = 0
+
 import random
 
-num1 = random.randint(2,9)
-num2 = random.randint(2,9)
+for i in range(5):
+    num1 = random.randint(2, 9)
+    num2 = random.randint(2, 9)
+    operator = random.choice(["+", "-", "*"])
 
-operation = random.choice(["+", "-", "*"])
+    print(num1, operator, num2)
+    answer = input(">")
 
-print(num1, operation, num2,"\n>")
-user_answer = int(input())
-answer = None
+    while not answer.isdigit():
+        answer = input("Incorrect format.\n>")
 
-if operation == "+":
-    answer = num1 + num2
-    if answer == user_answer:
-        print("Right!")
-    else:
-        print("Wrong!")
+    answer = int(answer)
 
-elif operation == "-":
-    answer = num1 - num2
-    if answer == user_answer:
-        print("Right!")
-    else:
-        print("Wrong")
+    if operator == "+":
+        if answer == num1 + num2:
+            print("Right!")
+            counter += 1
+        else:
+            print("Wrong!")
 
-elif operation == "*":
-    answer = num1 * num2
-    if answer == user_answer:
-        print("Right!")
-    else:
-        print("Wrong!")
+    elif operator == "-":
+        if answer == num1 - num2:
+            print("Right!")
+            counter += 1
+        else:
+            print("Wrong!")
 
+    elif operator == "*":
+        if answer == num1 * num2:
+            print("Right!")
+            counter += 1
+        else:
+            print("Wrong!")
+
+print("Your mark is", counter, "/5")
